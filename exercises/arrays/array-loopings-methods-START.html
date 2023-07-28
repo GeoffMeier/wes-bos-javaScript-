@@ -846,11 +846,16 @@ Portions of this content are ©1998–2023 by individual mozilla.org contributor
           function lowerCase(char){
             return char.toLowerCase();
           }
+          function instanceCounter(counts,char){
+            counts[char] ? counts[char] = counts[char] + 1 : counts[char] = 1;
+            return counts;
+          }
     
       const result = text
       .split('') //split each char into an item of an array
       .filter(isValidChar)
       .map(lowerCase)
+      .reduce(instanceCounter,{})
 
         //checking to see if character is a-z A-Z 0-9
        
