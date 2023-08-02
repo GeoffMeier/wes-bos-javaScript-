@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Bind Call and Apply!</title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+<script>
+  const person = {
+    name: 'Geoffrey Meier',
+    sayHi: function(){
+      return `hey ${this.name}`;
+    }
+  }
+
+  const jenna = {name: 'jenna'};
+  const sayHi = person.sayHi.bind({name: 'Harry'})
+
+  const bill = {
+    total: 1000,
+    calculate: function(taxRate){
+      return this.total + (this.total * taxRate);
+    }
+  }
+  const total = bill.calculate(0.13);
+  const calc = bill.calculate.bind({total: 500},0.06);
+  console.log(calc())
+
+
+</script>
+</body>
+
+</html>
