@@ -25,7 +25,37 @@
     this.toppings =toppings;
     this.customerName =customerName;
     this.id = Math.floor(Math.random() * 100)
+    this.slices = 10;
+    // this.eat = function(){
+    //   if(this.slices > 0){
+    //     this.slices = this.slices - 1;
+    //     console.log(`you now have ${this.slices} slices`)
+    //   } else{
+    //     console.log(`sorry! no slices left`)
+    //   }
+     
+    // }
   }
+
+  Pizza.prototype.eat = function(){
+    
+      if(this.slices > 0){
+        this.slices = this.slices - 1;
+        console.log(`you now have ${this.slices} slices`)
+      } else{
+        console.log(`sorry! no slices left`)
+      }
+     
+    
+  }
+
+  Pizza.prototype.description = function(){
+
+    console.log(` ${this.customerName} ordered a pizza with the toppings of ${this.toppings} and he has ${this.slices} slices left`)
+  }
+
+  // const pepperoniPizza = new Pizza(['pepperoni'],'Geoffrey Meier');
+  // const allMeat = new Pizza(['sausage','pepperoni','Canadian Bacon','bacon'],'ryan')
 
   const pepperoniPizza = new Pizza(['pepperoni'],'Geoffrey Meier');
   const allMeat = new Pizza(['sausage','pepperoni','Canadian Bacon','bacon'],'ryan')
