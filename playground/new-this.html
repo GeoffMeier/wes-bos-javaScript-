@@ -9,6 +9,8 @@
 </head>
 
 <body>
+  <button class="one">button1</button>
+  <button class="two">button2</button>
 <script>
   const myDate = new Date('August 11, 2025')
   console.dir(myDate)
@@ -18,12 +20,29 @@
   const geoff = new Object({name: 'Geoff'});
   const span = document.createElement('span');
 
-  function Pizza(){
+  function Pizza(toppings = [], customerName){
     console.log('Making a pizza');
+    this.toppings =toppings;
+    this.customerName =customerName;
+    this.id = Math.floor(Math.random() * 100)
   }
 
-  const pepperoniPizza = new Pizza();
+  const pepperoniPizza = new Pizza(['pepperoni'],'Geoffrey Meier');
+  const allMeat = new Pizza(['sausage','pepperoni','Canadian Bacon','bacon'],'ryan')
   console.log(pepperoniPizza)
+  console.log(allMeat)
+
+  const button1 = document.querySelector('.one')
+  const button2 = document.querySelector('.two')
+
+// function tellMeAboutTheButton(){
+//   console.log(this)
+//   setTimeout(() => {
+//     this.textContent = "you clicked me"
+//   }, 1000)
+// }
+// button1.addEventListener('click', tellMeAboutTheButton)
+// button2.addEventListener('click', tellMeAboutTheButton)
 
 </script>
 </body>
