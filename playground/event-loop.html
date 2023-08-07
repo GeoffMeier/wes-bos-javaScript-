@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Event Loop</title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <style>
+    .go{
+      margin: 5rem;
+      background:white;
+      padding: 5rem;
+      width: 5rem;
+
+    }
+    .go.circle{
+      border-radius: 50%;
+    }
+    .go.red{
+      background: red;
+    }
+    .go.purple{
+background: purple;
+    }
+  </style>
+  <div class="go">CLICK ME!</div>
+  <script>
+    const go = document.querySelector('.go');
+    go.addEventListener('click', function(e){
+      const el = e.currentTarget;
+      el.textContent = "GO!"
+      console.log(el);
+      //make it a circle after 5 seconds
+      setTimeout(function(){
+        el.classList.add('circle');
+        //make it red after 0.5 seconds
+        setTimeout(function(){
+          el.classList.add('red');
+          //remove circle after .25 seconds
+          setTimeout(function(){
+            el.classList.remove('circle')
+            //make color purple after .3 seconds
+            setTimeout(function(){
+          el.classList.remove('red');
+          el.classList.add('purple')
+            },300)
+          },250)
+        },500)
+      }, 2000);
+    })
+
+  </script>
+</body>
+
+</html>
