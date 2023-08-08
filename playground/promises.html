@@ -10,6 +10,25 @@
 
 <body>
   <script>
+    function makePizza(toppings = []){
+      return pizzaPromise = new Promise(function(resolve,reject){
+        const amountOfTimeToBake = 1000 + (toppings.length * 1000);
+        setTimeout(function(){
+          resolve(`here is your pizz 🍕 with the toppings of ${toppings.join(' ')}`);
+          
+          },amountOfTimeToBake)
+       
+      });
+      
+    }
+ makePizza(['pepperoni']).then(function(pizza){
+  console.log(pizza);
+  return makePizza(['sausage', 'pepperoni','bacon'])
+ }).then(function(pizza){
+  console.log(pizza)
+ })
+
+
 
   </script>
 </body>
