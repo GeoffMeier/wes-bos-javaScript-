@@ -12,6 +12,11 @@
   <script>
     function makePizza(toppings = []){
       return pizzaPromise = new Promise(function(resolve,reject){
+        //reject if people try with pineapple 
+        if(toppings.includes('pineapple')){
+          reject('seriously get out!!')
+        }
+
         const amountOfTimeToBake = 1000 + (toppings.length * 1000);
         setTimeout(function(){
           resolve(`here is your pizz 🍕 with the toppings of ${toppings.join(' ')}`);
@@ -21,13 +26,22 @@
       });
       
     }
- makePizza(['pepperoni']).then(function(pizza){
-  console.log(pizza);
-  return makePizza(['sausage', 'pepperoni','bacon'])
- }).then(function(pizza){
-  console.log(pizza)
- })
+//  const pizzaPromise1 =makePizza(['pepperoni'])
+//   const pizzaPromise2 = makePizza(['sausage','bacon'])
+//   const pizzaPromise3 = makePizza(['chicken', 'canadian bacon','pineapple'])
+//   const pizzaPromise4 = makePizza(['hamburger', 'pepperoni','bacon'])
+//   const dinnerPromise = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3, pizzaPromise4])
+//   dinnerPromise.then(pizza => {
+//     console.log(pizza)
+//   })
 
+
+ makePizza(['chicken', 'canadian bacon','pineapple']).then(pizza => {
+  console.log(pizza)
+ }).catch(err => {
+  console.log('oh no!!!')
+  console.log(err)
+ })
 
 
   </script>
